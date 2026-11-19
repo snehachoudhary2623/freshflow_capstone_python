@@ -1,0 +1,199 @@
+\n============================================================
+DATA DICTIONARY
+============================================================
+Columns: transaction_id, day_index, outlet_id, product_code, category_code,
+quantity, unit_price, unit_cost, discount_rate, stock_before_units,
+payment_code, customer_rating
+Clean example loaded with np.loadtxt:
+[[1. 2.]
+ [3. 4.]]
+\n============================================================
+TASK A - DATA PROFILE
+============================================================
+Rows: 500
+Columns: 12
+Shape: (500, 12)
+Data type: float64
+Number of values: 6000
+Memory in bytes: 48000
+Missing values by column:
+0 0
+1 0
+2 0
+3 0
+4 0
+5 0
+6 4
+7 4
+8 0
+9 0
+10 0
+11 20
+\n============================================================
+TASK B - INTEGRITY AUDIT
+============================================================
+invalid ID: 0
+duplicate ID: 5
+invalid day: 0
+unknown outlet: 2
+unknown product: 0
+unknown payment: 0
+category mismatch: 4
+invalid quantity: 4
+missing price: 4
+invalid price: 2
+missing cost: 4
+invalid cost: 2
+invalid discount: 2
+zero stock: 5
+invalid rating: 3
+\n============================================================
+TASK C - CLEANING
+============================================================
+Original rows: 500
+Rows retained: 471
+Rows excluded: 29
+Missing customer ratings are allowed.
+High but valid discounts and zero stock are kept for review.
+\n============================================================
+TASK D - METRIC ENGINE
+============================================================
+Gross sales INR: 137644.73
+Discount amount INR: 11031.48
+Net revenue INR: 126613.25
+Cost of goods sold INR: 61803.48
+Gross profit INR: 64809.77
+Gross margin %: 51.19
+Average transaction value INR: 268.82
+\n============================================================
+TASK E - OUTLET COMPARISON
+============================================================
+Outlet A Revenue: 40559.84 Profit: 20867.98 Units: 526
+Outlet B Revenue: 45088.68 Profit: 23043.01 Units: 583
+Outlet C Revenue: 40964.72 Profit: 20898.77 Units: 528
+\n============================================================
+TASK E - PRODUCT COMPARISON
+============================================================
+Orange Juice Revenue: 13749.3 Profit: 6690.95 Units: 191
+Mango Juice Revenue: 12422.18 Profit: 6338.53 Units: 149
+Apple Juice Revenue: 13354.97 Profit: 6601.52 Units: 209
+Watermelon Juice Revenue: 20124.94 Profit: 10878.87 Units: 240
+Banana Smoothie Revenue: 21021.39 Profit: 10811.96 Units: 187
+Mixed Fruit Smoothie Revenue: 21450.5 Profit: 11067.19 Units: 181
+Lemonade Revenue: 11784.12 Profit: 6016.75 Units: 251
+Iced Tea Revenue: 12705.83 Profit: 6403.98 Units: 229
+\n============================================================
+TASK F - DESCRIPTIVE STATISTICS
+============================================================
+Mean: 268.82
+Median: 242.2
+Standard deviation: 169.66
+25th percentile: 138.7
+75th percentile: 358.44
+Minimum: 41.87
+Maximum: 1533.6
+Range: 1491.73
+Histogram counts: [337 119  14   0   1]
+\n============================================================
+TASK G - DAILY TREND
+============================================================
+Day 1 revenue: 3783.34
+Day 2 revenue: 2663.37 change: -1119.97 change %: -29.6
+Day 3 revenue: 4847.76 change: 2184.39 change %: 82.02
+Day 4 revenue: 6798.05 change: 1950.28 change %: 40.23
+Day 5 revenue: 5922.86 change: -875.19 change %: -12.87
+Day 6 revenue: 3952.99 change: -1969.87 change %: -33.26
+Day 7 revenue: 2722.04 change: -1230.95 change %: -31.14
+Day 8 revenue: 3673.99 change: 951.95 change %: 34.97
+Day 9 revenue: 3703.17 change: 29.18 change %: 0.79
+Day 10 revenue: 4520.17 change: 817.0 change %: 22.06
+Day 11 revenue: 2651.99 change: -1868.18 change %: -41.33
+Day 12 revenue: 2415.01 change: -236.98 change %: -8.94
+Day 13 revenue: 4696.29 change: 2281.27 change %: 94.46
+Day 14 revenue: 6513.99 change: 1817.71 change %: 38.71
+Day 15 revenue: 5832.29 change: -681.71 change %: -10.47
+Day 16 revenue: 3925.44 change: -1906.85 change %: -32.69
+Day 17 revenue: 5171.39 change: 1245.95 change %: 31.74
+Day 18 revenue: 3397.28 change: -1774.12 change %: -34.31
+Day 19 revenue: 3153.28 change: -244.0 change %: -7.18
+Day 20 revenue: 3982.39 change: 829.11 change %: 26.29
+Day 21 revenue: 3563.07 change: -419.33 change %: -10.53
+Day 22 revenue: 3127.48 change: -435.59 change %: -12.23
+Day 23 revenue: 4707.25 change: 1579.77 change %: 50.51
+Day 24 revenue: 7971.26 change: 3264.01 change %: 69.34
+Day 25 revenue: 4011.0 change: -3960.26 change %: -49.68
+Day 26 revenue: 3779.3 change: -231.69 change %: -5.78
+Day 27 revenue: 2322.12 change: -1457.18 change %: -38.56
+Day 28 revenue: 3679.24 change: 1357.11 change %: 58.44
+Day 29 revenue: 4719.19 change: 1039.95 change %: 28.27
+Day 30 revenue: 4406.24 change: -312.95 change %: -6.63
+3-day moving average: [3764.82 4769.73 5856.22 5557.97 4199.3  3449.68 3366.4  3965.78 3625.11
+ 3195.73 3254.43 4541.76 5680.86 5423.91 4976.37 4164.7  3907.32 3510.98
+ 3566.25 3557.65 3799.26 5268.66 5563.17 5253.85 3370.81 3260.22 3573.52
+ 4268.22]
+Total cumulative revenue: 126613.25
+\n============================================================
+TASK H - DISCOUNT INVESTIGATION
+============================================================
+No discount count: 172 quantity: 607 revenue: 52508.15 margin %: 55.84
+1-10% count: 153 quantity: 510 revenue: 39570.52 margin %: 51.08
+11-20% count: 141 quantity: 501 revenue: 33817.06 margin %: 45.01
+Above 30% count: 5 quantity: 19 revenue: 717.52 margin %: 7.39
+Discount group differences do not prove cause and effect.
+\n============================================================
+TASK I - ANOMALY REGISTER
+============================================================
+Flagged records: 34
+Details saved in anomaly_register.csv.
+Outliers are review flags, not automatically errors.
+\n============================================================
+TASK J - DISCOUNT SCENARIOS
+============================================================
+Assumed discount: 5.0 %
+Revenue: 130762.49 change: 4149.25
+Gross profit: 68959.01 change: 4149.25
+Assumed discount: 10.0 %
+Revenue: 123880.26 change: -2732.99
+Gross profit: 62076.78 change: -2732.99
+Assumed discount: 15.0 %
+Revenue: 116998.02 change: -9615.23
+Gross profit: 55194.54 change: -9615.23
+Quantity and unit cost are held constant. This is not a forecast.
+\n============================================================
+TASK K - VALIDATION TESTS
+============================================================
+Five sample rows checked.
+Shape check passed.
+Zero denominator check passed.
+NaN check passed.
+Invalid shape check passed.
+Metric consistency checks passed.
+Bug fix: duplicate IDs are checked using the ID column, not complete rows.
+\n============================================================
+TASK L - FINDINGS AND RECOMMENDATIONS
+============================================================
+Finding 1: Highest gross-profit outlet: Outlet B
+Action: compare its practices with Outlet A
+Monitor: weekly gross profit and margin.
+Limitation: rent and salaries are not included.
+\nFinding 2: Most units sold: Lemonade
+Highest product gross profit: Mixed Fruit Smoothie
+Action: plan product stock using demand and profit.
+Monitor: units and gross profit by product.
+Limitation: only 30 days are included.
+\nFinding 3: Review discounts using margin and quantity together.
+Action: test promotions carefully.
+Monitor: gross margin by discount band.
+Limitation: the data does not prove demand response.
+\nFindings use synthetic practice data.
+\nAll analysis steps completed successfully.
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
